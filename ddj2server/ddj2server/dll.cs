@@ -173,5 +173,46 @@ namespace ddj2server
         [DllImport("IMPredictFr2.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, EntryPoint = "IMPredictFrMainCal")]
         public static extern void IMPredictFrMainCal(
                 int P, int Q1, int Q2, double N_r, double F, int Frmax, string OutputPath, Callback cb);
+
+
+        public static int[] str2IntArr(string str, int row)
+        {
+            var arr = str.Split('|');
+            var res = new int[row];
+            int a = 0;
+            for (int r = 0; r < row; r++)
+            {
+                res[r] = int.Parse(arr[a++]);
+            }
+            return res;
+
+        }
+        public static double[] str2DoubleArr(string str, int row)
+        {
+            var arr = str.Split('|');
+            var res = new double[row];
+            int a = 0;
+            for (int r = 0; r < row; r++)
+            {
+                res[r] = double.Parse(arr[a++]);
+            }
+            return res;
+
+        }
+
+        public static double[,] str2DoubleArr(string str, int row, int col)
+        {
+            var arr = str.Split('|');
+            var res = new double[row, col];
+            int a = 0;
+            for (int r = 0; r < row; r++)
+            {
+                for (int c = 0; c < col; c++)
+                {
+                    res[r, c] = double.Parse(arr[a++]);
+                }
+            }
+            return res;
+        }
     }
 }
