@@ -174,7 +174,19 @@ namespace ddj2server
         public static extern void IMPredictFrMainCal(
                 int P, int Q1, int Q2, double N_r, double F, int Frmax, string OutputPath, Callback cb);
 
+        public static int[] str2IntArr(string str)
+        {
+            var arr = str.Split('|');
+            int row = arr.length;
+            var res = new int[row];
+            int a = 0;
+            for (int r = 0; r < row; r++)
+            {
+                res[r] = int.Parse(arr[a++]);
+            }
+            return res;
 
+        }
         public static int[] str2IntArr(string str, int row)
         {
             var arr = str.Split('|');
@@ -183,6 +195,19 @@ namespace ddj2server
             for (int r = 0; r < row; r++)
             {
                 res[r] = int.Parse(arr[a++]);
+            }
+            return res;
+
+        }
+        public static double[] str2DoubleArr(string str)
+        {
+            var arr = str.Split('|');
+            int row = arr.length;
+            var res = new double[row];
+            int a = 0;
+            for (int r = 0; r < row; r++)
+            {
+                res[r] = double.Parse(arr[a++]);
             }
             return res;
 
